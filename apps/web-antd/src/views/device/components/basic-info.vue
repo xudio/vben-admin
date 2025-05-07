@@ -17,11 +17,11 @@ interface DeviceDetail {
   productName: string;
   organization: string;
   model: string;
-  deviceType: string;
-  osVersion: string;
+  type: string;
+  os: string;
   firstOnlineTime: string;
   lastLoginTime: string;
-  onlineDuration: string;
+  onlineTime: string;
 }
 
 interface Props {
@@ -123,10 +123,10 @@ const groupColumns = [
           {{ deviceDetail.model }}
         </Descriptions.Item>
         <Descriptions.Item label="设备类型">
-          {{ deviceDetail.deviceType }}
+          {{ deviceDetail.type }}
         </Descriptions.Item>
         <Descriptions.Item label="OS版本">
-          {{ deviceDetail.osVersion }}
+          {{ deviceDetail.os }}
         </Descriptions.Item>
         <Descriptions.Item label="设备初次上线时间">
           {{ deviceDetail.firstOnlineTime }}
@@ -135,7 +135,7 @@ const groupColumns = [
           {{ deviceDetail.lastLoginTime }}
         </Descriptions.Item>
         <Descriptions.Item label="在线时长">
-          {{ deviceDetail.onlineDuration }}
+          {{ deviceDetail.onlineTime }}
         </Descriptions.Item>
       </Descriptions>
     </Card>

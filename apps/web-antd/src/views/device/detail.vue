@@ -15,15 +15,16 @@ import LogManagement from './components/log-management.vue';
 
 interface DeviceInfo {
   id: string;
+  name: string;
   user: string;
   productName: string;
   organization: string;
   model: string;
-  deviceType: string;
-  osVersion: string;
+  type: string;
+  os: string;
   firstOnlineTime: string;
   lastLoginTime: string;
-  onlineDuration: string;
+  onlineTime: string;
 }
 
 const route = useRoute();
@@ -33,15 +34,16 @@ const deviceId = route.params.id;
 // 设备详情数据
 const deviceDetail = ref<Partial<DeviceInfo>>({
   id: '',
+  name: '',
   user: '',
   productName: '',
   organization: '',
   model: '',
-  deviceType: '',
-  osVersion: '',
+  type: '',
+  os: '',
   firstOnlineTime: '',
   lastLoginTime: '',
-  onlineDuration: '',
+  onlineTime: '',
 });
 
 // 获取设备详情
@@ -66,7 +68,7 @@ const handleBack = () => {
 
 <template>
   <Page auto-content-height>
-    <Card :title="`设备详情 - ${deviceDetail.id}`">
+    <Card :title="`设备详情 - ${deviceDetail.name}`">
       <template #extra>
         <Button type="primary" @click="handleBack">返回列表</Button>
       </template>

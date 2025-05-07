@@ -7,21 +7,19 @@ function generateDeviceDetail(id: string) {
   return {
     id,
     name: `设备${id.slice(0, 4)}`,
+    user: faker.person.fullName(),
+    productName: faker.commerce.productName(),
+    organization: faker.company.name(),
+    model: faker.helpers.arrayElement(['Model A', 'Model B', 'Model C']),
+    os: faker.helpers.arrayElement(['1.0.0', '1.0.1', '1.0.2']),
+    onlineTime: `${faker.number.int({ min: 1, max: 24 })}小时`,
     state: faker.helpers.arrayElement(['正常', '故障', '维修中']),
     type: faker.helpers.arrayElement(['类型A', '类型B', '类型C']),
     description: faker.commerce.productDescription(),
     createTime: faker.date.past().toISOString(),
+    lastLoginTime: faker.date.recent().toISOString(),
+    firstOnlineTime: faker.date.past().toISOString(),
     lastUpdateTime: faker.date.recent().toISOString(),
-    parameters: {
-      temperature: faker.number.int({ min: 20, max: 40 }),
-      humidity: faker.number.int({ min: 30, max: 80 }),
-      pressure: faker.number.int({ min: 900, max: 1100 }),
-    },
-    maintenance: {
-      lastCheck: faker.date.past().toISOString(),
-      nextCheck: faker.date.future().toISOString(),
-      state: faker.helpers.arrayElement(['正常', '待检查', '已过期']),
-    },
   };
 }
 
